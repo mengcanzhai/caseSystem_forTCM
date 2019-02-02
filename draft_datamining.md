@@ -20,15 +20,17 @@
 
 ---
 ## 模型
-~~定义集合C为~~
-特定地，对于某患者个体P（patient）,定义集合C（condition）为某时刻全身状态，定义集合S(sympton)为某时刻全身症状。有S包含于C。将C、S映射至以症状为轴的向量空间，得到向量c、s
-定义集合I（intervention）为某时间段内对P的干预
-有F(c0,I0)=c1，F(s0,I0)=s1。delta s=s1-s0
-有Ia、Ib、Ic，为I子集，Ia为主要观察干预，包括药物，Ib为辅干预，主要为环境等，Ic为自身干预，与c相关。i为I元素。存在i，使得delta s=0。
+~~定义集合C(condition)为状态。C()~~
+~~特定地，对于某患者个体P（patient）,定义集合C（condition）为某时刻全身状态，定义集合S(sympton)为某时刻全身症状。有S包含于C。将C、S映射至以症状为轴的向量空间，得到向量c、s~~
+对某个体P,Pn指代在时刻n的P。Cn为Pn全身状态,Sn为Pn全身症状。有Sn包含于Cn。Sn子集记作Sn{name}。(目前完全抽象P、S、C)
+定义集合In（intervention）为某时间段内对P的干预，In子集记作In{name}
+有F(C0,I0)=C1，F(S0,I0)=S1。delta S[i,j]=Sj-Si
+有Ia、Ib、Ic，为I子集，Ia为主要观察干预，包括药物，Ib为辅干预，主要为环境等，Ic为自身干预，与C相关。In{name}为I子集。存在In{name}，使得delta S[n+1,n]=0。
 
 
 ---
 ## 数据挖掘目标
-
-- 用药习惯：c0\s0 -> Ia0。特别地 delta c\s -> delta Ia
+挖掘a对b的影响，记作a -> b
+- 用药习惯：Cn\Sn -> Ian。特别地 delta C\S[n,n-1] -> Ian-Ia(n-1)
 - 治疗效果：
+	- 最短期疗效
